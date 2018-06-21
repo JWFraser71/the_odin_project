@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>DOM Manipulation Exercise</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>
+            DOM-Manipulation Exercise
+          </h1>
+          <div id="container">
+              <div class="content">
+              This is the glorious text-content!
+            </div>
+          </div>
+
+    </body>
+    <script>
+        var para = document.querySelector('#container');
+        var content = document.createElement('p');
+        content.textContent = "Hey, I'm red!";
+        content.style.color = 'red';
+        para.appendChild(content);
+
+        var headerThree = document.querySelector('.content');
+        var contentHeaderThree = document.createElement('h3');
+        contentHeaderThree.textContent = "I'm a blue h3!";
+        contentHeaderThree.style.color = 'blue';
+        headerThree.appendChild(contentHeaderThree);
+
+        var divElement = document.querySelector('.content');
+        var contentOne = document.createElement('div');
+        contentOne.setAttribute('style', 'background: pink');
+        contentOne.style.outline = "thin solid black";
+        contentOne.classList.add('exercise');
+        divElement.appendChild(contentOne);
+
+        var headerOne = document.querySelector('.exercise');
+        var contentTwo = document.createElement('h1');
+        contentTwo.textContent = "I'm in a div";
+        headerOne.appendChild(contentTwo);
+
+        var paraTwo = document.querySelector('.exercise');
+        var contentThree = document.createElement('p');
+        contentThree.textContent = "ME TOO!";
+        paraTwo.appendChild(contentThree);
+
+        
+    </script>
+</html>
