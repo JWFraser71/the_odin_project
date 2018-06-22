@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors</title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <h1>Rock Paper Scissor</h1>
+  <p>Make your choice</p>
+  <button id="rock">Rock</button>
+  <button id="paper">Paper</button>
+  <button id="scissor">Scissor</button>
+  &nbsp;
+  &nbsp;
+  <p id="score"></p>
+  <script>
+      let player = 0;
+      let computer = 0;
+      var playerSelection;
+      var computerSelection;
+
+      function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+      function computerPlay() {
+          compNumber = getRandomInt(1, 3);
+          if (compNumber == 1) {
+              return "rock";
+          } else if (compNumber == 2) {
+              return "paper";
+          } else if (compNumber == 3) {
+              return "scissor";
+          } else {
+              console.log("I don't understand the selection");
+          }
+
+      }
+
+          
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == "rock" && computerSelection == "paper") {
+                computer += 1;
+                return "You Lose! Paper beats Rock";
+            } else if (playerSelection == "paper" && computerSelection == "paper") {
+                return "Tie Game! Paper and Paper";
+            } else if (playerSelection == "scissor" && computerSelection == "paper") {
+                player += 1;
+                return "You Win! Scissor beats Paper.";
+            }else if (playerSelection == "rock" && computerSelection == "rock") {
+                return "Tie Game! Rock and Rock.";
+            } else if (playerSelection == "paper" && computerSelection == "rock") {
+                player += 1;
+                return "You Win! Paper beats Rock.";
+            } else if (playerSelection == "scissor" && computerSelection == "rock") {
+                computer += 1;
+                return "You Lose! Rock beats Scissor";
+            } else if (playerSelection == "rock" && computerSelection == "scissor") {
+                player += 1;
+                return "You Win! Rock beats Scissor";
+            }else if (playerSelection == "paper" && computerSelection == "scissor") {
+                computer += 1;
+                return "You Lose! Scissor beats Paper";
+            } else if (playerSelection == "scissor" && computerSelection == "scissor") {
+                return "Tie Game! Scissor and Scissor";
+            }
+        }
+    
+
+      const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                  if (button.id === "rock"){
+                    computerSelection = computerPlay();
+                    playerSelection = "rock";
+                    gameRound = playRound(playerSelection, computerSelection);
+                    alert(gameRound);
+                    game()
+                  } else if (button.id === "paper") {
+                    computerSelection = computerPlay();
+                    playerSelection = "paper";
+                    gameRound = playRound(playerSelection, computerSelection);
+                    alert(gameRound);
+                    game()
+                  } else if (button.id === "scissor") {
+                    computerSelection = computerPlay();
+                    playerSelection = "scissor";
+                    gameRound = playRound(playerSelection, computerSelection);
+                    alert(gameRound);
+                    game()
+                  }
+              });
+          });
+          function game() {
+            if (computer > player){
+                alert("The score was Computer: " + computer + " You: " + player + " Computer wins!")
+            } else {
+                alert("The score was Computer: " + computer + " You: " + player + " You win!")
+            }
+          }
+  </script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
