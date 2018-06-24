@@ -17,7 +17,6 @@ while(i >= 0) {
 
     i--;
 }
-*/
 
 var people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
 var admitted = document.querySelector('.admitted');
@@ -37,3 +36,21 @@ for (var i = 0; i < people.length; i ++) {
 }
 refused.appendChild(refused);
 admitted.appendChild(admitted);
+*/
+var product = 0;
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+
+
+function multiplyNumeric() {
+    for(let key in menu) {
+        if (typeof(menu[key]) === "number") {
+          menu[key] *= 2;
+        } else {
+            console.log("Not a number");
+        }
+    }
+}
