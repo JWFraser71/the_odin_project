@@ -1,7 +1,7 @@
-var num1 = 0;
-var num2 = 0;
-var oper = '';
-var answer = 0;
+var num1;
+var num2;
+var oper;
+var answer;
 
 var number = document.getElementById('inputOutput');
 
@@ -26,6 +26,15 @@ operatorSelection.forEach((operand) => {
             number.value = ''
         }
     });
+});
+
+var numberCalculation = document.getElementById('equal');
+numberCalculation.addEventListener('click', (e) => {
+    if (number.value == typeof('number')) {
+        num2 = parseInt(number.value);
+        number.value = '';
+        operate(num1, num2, oper);
+    }
 });
 
 function clearScreen() {
@@ -53,8 +62,20 @@ function divide(num1, num2){
     return num1 / num2;
 
 }
-
-function operate(answer) {
+function displayResults(answer) {
     number.value = answer;
+}
 
+function operate(num1, num2, oper) {
+    if (oper == '-') {
+        answer = sub(num1, num2);
+    } else if (oper == '+') {
+        answer = add(num1, num2);
+    } else if (oper = '*') {
+        answer = multi(num1, num2);
+    } else if (oper = '/') {
+        answer = divide(num1, num2);
+    }
+    displayResults(answer);
+    
 }
