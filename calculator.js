@@ -5,6 +5,33 @@ var answer;
 
 var number = document.getElementById('inputOutput');
 
+var allNumbers = document.querySelectorAll('.number');
+allNumbers.forEach((eachNumber) => {
+    eachNumber.addEventListener('click', (e) => {
+        if (eachNumber.id == 'one') {
+            number.value +='1';
+        } else if (eachNumber.id == 'two') {
+            number.value +='2';
+        } else if (eachNumber.id == 'three') {
+            number.value +='3';
+        } else if (eachNumber.id == 'four') {
+            number.value +='4';
+        } else if (eachNumber.id == 'five') {
+            number.value +='5';
+        } else if (eachNumber.id == 'six') {
+            number.value +='6';
+        } else if (eachNumber.id == 'seven') {
+            number.value +='7';
+        } else if (eachNumber.id == 'eight') {
+            number.value +='8';
+        } else if (eachNumber.id == 'nine') {
+            number.value +='9';
+        } else if (eachNumber.id == 'zero') {
+            number.value +='0';
+        }
+    });
+});
+
 var operatorSelection = document.querySelectorAll('.operator');
 operatorSelection.forEach((operand) => {
     operand.addEventListener('click', (e) => {
@@ -30,12 +57,15 @@ operatorSelection.forEach((operand) => {
 
 var numberCalculation = document.getElementById('equal');
 numberCalculation.addEventListener('click', (e) => {
-    if (number.value == typeof('number')) {
-        num2 = parseInt(number.value);
-        number.value = '';
-        operate(num1, num2, oper);
-    }
+    num2 = parseInt(number.value);
+    number.value = '';
+    operate(num1, num2, oper);
 });
+
+var clearDisplay = document.getElementById('clear');
+clearDisplay.addEventListener('click', (e) => {
+    clearScreen();
+    });
 
 function clearScreen() {
     num1 = 0;
@@ -71,9 +101,9 @@ function operate(num1, num2, oper) {
         answer = sub(num1, num2);
     } else if (oper == '+') {
         answer = add(num1, num2);
-    } else if (oper = '*') {
+    } else if (oper == '*') {
         answer = multi(num1, num2);
-    } else if (oper = '/') {
+    } else if (oper == '/') {
         answer = divide(num1, num2);
     }
     displayResults(answer);
